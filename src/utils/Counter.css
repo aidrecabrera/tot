@@ -9,9 +9,6 @@
   background-color: red;
 }
 
-.person {
-  filter: invert(13%) sepia(83%) saturate(7067%) brightness(101%) contrast(115%);
-}
 .person:hover {
-  filter: invert(13%) sepia(83%) saturate(7067%) brightness(101%) contrast(25%);
+  filter: invert(13%) sepia(83%) saturate(7067%) brightness(101%) contrast(115%);
 }

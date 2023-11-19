@@ -149,7 +149,7 @@ function RevealLine() {
     <>
       <div ref={body}>
         <motion.hr
-          className="border border-white my-16"
+          className="border border-black my-16"
           variants={animate}
           initial="initial"
           animate={isInView ? "open" : "initial"}

@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply text-white bg-black font-nacelle overflow-x-hidden overflow-y-auto;
+  @apply text-black bg-red-700 font-nacelle overflow-x-hidden overflow-y-auto;
 }
 
 html::-webkit-scrollbar {
@@ -188,7 +188,7 @@ body::before {
   height: 200%;
   z-index: -1;
   background-image: url("noise.png");
-  opacity: 0.4;
+  opacity: 1;
   animation: noise 1s steps(4) infinite;
 }
 
