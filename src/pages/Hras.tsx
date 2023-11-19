@@ -1,7 +1,11 @@
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import MassacresList from "../components/Landing/Massacres";
 import "../main.css";
 import Counter from "../utils/Counter";
 import Methods from "../utils/Methods";
+
 export default function Hras() {
   const MartialLawStatistics = [
     {
@@ -48,15 +52,31 @@ export default function Hras() {
   return (
     <div>
       <div className="flex flex-col gap-16 ">
-        <h1 className="text-7xl">
-          Now try to comprehend these numbers.
-          <br />
-          One block represents 10 Filipino lives.
-        </h1>
-        <div className="flex flex-col gap-36">
+        <div className="flex flex-row justify-between ">
+          <a
+            href="https://11103film.ph/"
+            className="hover:underline transition-all duration-700 ease-in-out"
+          >
+            <h1 className="text-6xl">11,103</h1>
+          </a>
+          <div className="flex flex-col gap-6">
+            <h1 className="text-7xl">Now try to comprehend these numbers.</h1>
+            <h1 className="text-7xl">
+              One block represents 10 Filipino lives.
+            </h1>
+          </div>
+          <Link to={"/"}>
+            <div className="flex justify-center items-center duration-300 ease-in-out hover:text-red-700 hover:bg-black border-2 border-black rounded-full h-56 w-56">
+              <h1 className="text-9xl">←</h1>
+            </div>
+          </Link>
+        </div>
+        <RevealLine />
+        <div className="flex flex-col gap-16">
           {MartialLawStatistics.map((stat, index) => (
-            <div key={index}>
+            <div className=" pt-16" key={index}>
               <Counter peopleCount={stat.count} description={stat.type} />
+              <RevealLine />
             </div>
           ))}
         </div>
@@ -70,5 +90,37 @@ export default function Hras() {
         <Methods />
       </div>
     </div>
+  );
+}
+
+function RevealLine() {
+  const animate = {
+    initial: {
+      width: "0%",
+      transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+    },
+    open: {
+      width: "100%",
+      transition: { duration: 1.1, ease: [0.33, 1, 0.68, 1] },
+    },
+  };
+  const body = useRef(null);
+  const isInView = useInView(body, { once: false, margin: "-10%" });
+
+  useEffect(() => {
+    console.log(isInView + "!!!!!!!!!!!!!");
+  }, [isInView]);
+
+  return (
+    <>
+      <div ref={body}>
+        <motion.hr
+          className="border border-white mt-24"
+          variants={animate}
+          initial="initial"
+          animate={isInView ? "open" : "initial"}
+        />
+      </div>
+    </>
   );
 }

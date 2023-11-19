@@ -1,3 +1,6 @@
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+
 export default function Methods() {
   const victimMethods = [
     {
@@ -216,10 +219,8 @@ export default function Methods() {
               <ul>
                 {Array.isArray(victims) &&
                   victims.map((victim, i) => (
-                    <li
-                      className="hover:underline duration-150 ease-in-out"
-                      key={i}
-                    >
+                    <li className="" key={i}>
+                      <RevealLine />
                       {victim}
                     </li>
                   ))}
@@ -227,6 +228,38 @@ export default function Methods() {
             </div>
           </div>
         ))}
+      </div>
+    </>
+  );
+}
+
+function RevealLine() {
+  const animate = {
+    initial: {
+      width: "0%",
+      transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+    },
+    open: {
+      width: "100%",
+      transition: { duration: 1.1, ease: [0.33, 1, 0.68, 1] },
+    },
+  };
+  const body = useRef(null);
+  const isInView = useInView(body, { once: true, margin: "-10%" });
+
+  useEffect(() => {
+    console.log(isInView + "!!!!!!!!!!!!!");
+  }, [isInView]);
+
+  return (
+    <>
+      <div ref={body}>
+        <motion.hr
+          className="border border-white my-3"
+          variants={animate}
+          initial="initial"
+          animate={isInView ? "open" : "initial"}
+        />
       </div>
     </>
   );

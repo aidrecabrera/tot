@@ -54,6 +54,9 @@ export default function Mask() {
 
   return (
     <main className={styles.main}>
+      <h1 className="absolute uppercase top-[350px] left-1/2 transform -translate-x-1/2 tracking-wider font-nacelle">
+        ARE YOU READY FOR SOME REAL HORROR?
+      </h1>
       <div ref={container} className={styles.container}>
         <div ref={stickyMask} className={styles.stickyMask}>
           <motion.img

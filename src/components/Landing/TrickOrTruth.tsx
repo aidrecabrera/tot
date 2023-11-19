@@ -14,19 +14,41 @@ export default function TrickOrTruth() {
     "Ghosts of democracy, now haunting the land,",
     "In the Philippines, where fear takes a stand.",
   ];
+  const welcome: any = [
+    "Balikan ang kuwento ng panahong walang palag, ",
+    "marami ang bulag at matunaw ang habag sa taong lumabag.",
+    "Sa panahong madali maging abo sa garapon ang katawan.",
+  ];
+  const welcome1: any = ["Sa panahong maraming nagdugo."];
 
   return (
-    <div className="flex flex-col h-screen gap-10">
-      <div className="flex justify-start font-nacelle leading-tight">
-        <RevealText phrases={message} />
+    <>
+      <div className="flex flex-col gap-10">
+        <div className="flex justify-start font-nacelle leading-tight">
+          <RevealText phrases={message} />
+        </div>
+        <div className="flex justify-center font-nacelle leading-tight">
+          <RevealText phrases={message1} />
+        </div>
+        <div className="flex justify-end font-nacelle leading-tight">
+          <RevealText phrases={message2} />
+        </div>
       </div>
-      <div className="flex justify-center font-nacelle leading-tight">
-        <RevealText phrases={message1} />
+      <RevealLine />
+      <div className="h-screen flex flex-col items-center justify-center">
+        <div className="flex flex-col gap-10">
+          <div className="flex justify-center font-nacelle leading-tight">
+            <RevealText phrases={welcome} />
+          </div>
+          <div className="flex justify-center font-nacelle leading-tight">
+            <RevealText phrases={welcome1} />
+          </div>
+          <div className="flex justify-center font-nacelle leading-tight">
+            <RevealFigure />
+          </div>
+        </div>
       </div>
-      <div className="flex justify-end font-nacelle leading-tight">
-        <RevealText phrases={message2} />
-      </div>
-    </div>
+    </>
   );
 }
 
@@ -65,6 +87,73 @@ function RevealText({ phrases }: { phrases: string[] }) {
             </div>
           );
         })}
+      </div>
+    </>
+  );
+}
+
+function RevealFigure() {
+  const animate = {
+    initial: {
+      y: "200%",
+      transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+    },
+    open: (i: number) => ({
+      y: "0%",
+      transition: { duration: 1.1, delay: 0.15 * i, ease: [0.33, 1, 0.68, 1] },
+    }),
+  };
+  const body = useRef(null);
+  const isInView = useInView(body, { once: false, margin: "-10%" });
+
+  useEffect(() => {
+    console.log(isInView);
+  }, [isInView]);
+
+  return (
+    <>
+      <div ref={body} className="flex flex-row justify-center text-5xl gap-10">
+        <div className="linemask overflow-hidden">
+          <motion.div
+            variants={animate}
+            initial="initial"
+            animate={isInView ? "open" : "initial"}
+          >
+            <img src="gago.png" className="w-56" alt="" />
+          </motion.div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function RevealLine() {
+  const animate = {
+    initial: {
+      width: "0%",
+      transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+    },
+    open: {
+      width: "100%",
+      transition: { duration: 1.1, ease: [0.33, 1, 0.68, 1] },
+    },
+  };
+  const body = useRef(null);
+  const isInView = useInView(body, { once: false, margin: "-10%" });
+
+  useEffect(() => {
+    console.log(isInView + "!!!!!!!!!!!!!");
+  }, [isInView]);
+
+  return (
+    <>
+      <div ref={body}>
+        <motion.hr
+          className="border border-white my-16"
+          variants={animate}
+          initial="initial"
+          animate={isInView ? "open" : "initial"}
+        />
       </div>
     </>
   );

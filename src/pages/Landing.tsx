@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Introduction from "../components/Landing/Introduction";
 import Lies from "../components/Landing/Lies";
 import NoChoice from "../components/Landing/NoChoice";
@@ -38,7 +40,7 @@ export default function Landing() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-10 -mt-[1600px]">
-        <div>
+        <div className="">
           <Proclamation />
         </div>
         <div>
@@ -70,16 +72,49 @@ export default function Landing() {
           <Suffer />
         </h1>
       </div>
+      <RevealLine />
       <div className="h-screen flex flex-col justify-center items-center text-center gap-24">
         <h1 className="text-8xl w-5/6">
           <NoChoice />
         </h1>
-        <a href="/horrors">
-          <div className="border-2 border-black rounded-full px-7 py-2">
-            <h1 className=" tracking-wider font-bold">WHAT'S THE AFTERMATH?</h1>
+        <Link to={"/horrors"} preventScrollReset={false}>
+          <div className="flex justify-center items-center duration-300 ease-in-out hover:text-red-700 hover:bg-black border-2 border-black rounded-full h-56 w-56">
+            <h1 className="text-9xl">→</h1>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
+  );
+}
+
+function RevealLine() {
+  const animate = {
+    initial: {
+      width: "0%",
+      transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+    },
+    open: {
+      width: "100%",
+      transition: { duration: 1.1, ease: [0.33, 1, 0.68, 1] },
+    },
+  };
+  const body = useRef(null);
+  const isInView = useInView(body, { once: false, margin: "-10%" });
+
+  useEffect(() => {
+    console.log(isInView + "!!!!!!!!!!!!!");
+  }, [isInView]);
+
+  return (
+    <>
+      <div ref={body}>
+        <motion.hr
+          className="border border-white my-16"
+          variants={animate}
+          initial="initial"
+          animate={isInView ? "open" : "initial"}
+        />
+      </div>
+    </>
   );
 }

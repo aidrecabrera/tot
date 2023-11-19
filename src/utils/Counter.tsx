@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import RevealText from "../components/RevealText";
 import "./Counter.css";
 import MagneticInteraction from "./magneticInteraction";
 
@@ -24,7 +25,7 @@ export default function Counter({
   return (
     <div className="flex gap-5">
       <div className="w-1/2">
-        <h1 className="text-9xl">{description}</h1>
+        <RevealText phrases={[description]} />
       </div>
       <div
         className="grid grid-cols-12 grid-rows-6 flex-wrap gap-4 w-1/2"

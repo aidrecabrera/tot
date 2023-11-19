@@ -30,6 +30,7 @@ export default function Massacres() {
             animate="visible"
             variants={itemVariants}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="hover:underline duration-150 ease-in-out"
           >
             {massacre}
           </motion.h1>
