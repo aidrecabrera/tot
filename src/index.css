@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-black bg-red-700 font-nacelle overflow-x-hidden overflow-y-auto;
+}
+
+html::-webkit-scrollbar {
+  width: 5px;
+  background-color: black;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 10%;
+  background-color: red;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Italic"), local("Nacelle-Italic"),
+    url("Nacelle-Italic.woff2") format("woff2"),
+    url("Nacelle-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Heavy Italic"), local("Nacelle-HeavyItalic"),
+    url("Nacelle-HeavyItalic.woff2") format("woff2"),
+    url("Nacelle-HeavyItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Bold Italic"), local("Nacelle-BoldItalic"),
+    url("Nacelle-BoldItalic.woff2") format("woff2"),
+    url("Nacelle-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle SemiBold Italic"), local("Nacelle-SemiBoldItalic"),
+    url("Nacelle-SemiBoldItalic.woff2") format("woff2"),
+    url("Nacelle-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Black Italic"), local("Nacelle-BlackItalic"),
+    url("Nacelle-BlackItalic.woff2") format("woff2"),
+    url("Nacelle-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Light Italic"), local("Nacelle-LightItalic"),
+    url("Nacelle-LightItalic.woff2") format("woff2"),
+    url("Nacelle-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Heavy"), local("Nacelle-Heavy"),
+    url("Nacelle-Heavy.woff2") format("woff2"),
+    url("Nacelle-Heavy.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Thin Italic"), local("Nacelle-ThinItalic"),
+    url("Nacelle-ThinItalic.woff2") format("woff2"),
+    url("Nacelle-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Light"), local("Nacelle-Light"),
+    url("Nacelle-Light.woff2") format("woff2"),
+    url("Nacelle-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Regular"), local("Nacelle-Regular"),
+    url("Nacelle-Regular.woff2") format("woff2"),
+    url("Nacelle-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Bold"), local("Nacelle-Bold"),
+    url("Nacelle-Bold.woff2") format("woff2"),
+    url("Nacelle-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle UltraLight Italic"), local("Nacelle-UltraLightItalic"),
+    url("Nacelle-UltraLightItalic.woff2") format("woff2"),
+    url("Nacelle-UltraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Black"), local("Nacelle-Black"),
+    url("Nacelle-Black.woff2") format("woff2"),
+    url("Nacelle-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle Thin"), local("Nacelle-Thin"),
+    url("Nacelle-Thin.woff2") format("woff2"),
+    url("Nacelle-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle SemiBold"), local("Nacelle-SemiBold"),
+    url("Nacelle-SemiBold.woff2") format("woff2"),
+    url("Nacelle-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacelle";
+  src: local("Nacelle UltraLight"), local("Nacelle-UltraLight"),
+    url("Nacelle-UltraLight.woff2") format("woff2"),
+    url("Nacelle-UltraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global noise animation */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 999;
+  background-image: url("noise.png");
+  opacity: 1;
+  animation: noise 1s steps(4) infinite;
+}
+
+@keyframes noise {
+  0% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%);
+  }
+  70% {
+    transform: translateY(10%);
+  }
+  80% {
+    transform: translate(-15%);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  to {
+    transform: translate(5%);
+  }
+}
+
+.overlay {
+  animation: fade-in 5s ease-in-out forwards;
+}

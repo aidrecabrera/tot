@@ -1,0 +1,80 @@
+.divider {
+  border: 1px solid;
+  height: 0px;
+  margin-top: 0px;
+  position: relative;
+  width: 1850px;
+}
+
+.INDEX {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: 813px;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  width: 1860px;
+}
+
+.INDEX .frame {
+  align-items: flex-start;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  position: relative;
+  width: 1190px;
+}
+
+.INDEX .text-wrapper {
+  font-family: "Nacelle-HeavyItalic", Helvetica;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  height: 60px;
+  letter-spacing: -1.2px;
+  line-height: 58px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 51px;
+}
+
+.INDEX .div {
+  font-family: "Nacelle-Bold", Helvetica;
+  font-size: 50px;
+  font-weight: 700;
+  height: 91px;
+  letter-spacing: -2.5px;
+  line-height: 58px;
+  margin-bottom: -30px;
+  margin-top: -1px;
+  position: relative;
+  width: 1113px;
+}
+
+.INDEX .line {
+  height: 1px;
+  margin-right: -10px;
+  object-fit: cover;
+  position: relative;
+  width: 1850px;
+}
+
+.INDEX .text-wrapper-2 {
+  font-family: "Nacelle-Bold", Helvetica;
+  font-size: 50px;
+  font-weight: 700;
+  height: 60px;
+  letter-spacing: -2.5px;
+  line-height: 58px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 1113px;
+}
+
+.or {
+  @apply text-[12rem] z-10 -m-24 font-normal;
+}

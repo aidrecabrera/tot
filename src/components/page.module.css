@@ -1,0 +1,22 @@
+.main {
+  margin-bottom: 25vh;
+}
+
+.container {
+  position: relative;
+  height: 300vh;
+}
+
+.stickyMask {
+  display: flex;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  mask-image: url("/fuckermask.svg");
+  mask-position: 50% center;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+}

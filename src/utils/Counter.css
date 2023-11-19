@@ -1,0 +1,14 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(1fr, 1fr));
+  height: 100vh;
+}
+
+.grid-item.red {
+  background-color: red;
+}
+
+.person:hover {
+  filter: invert(13%) sepia(83%) saturate(7067%) brightness(101%) contrast(115%);
+}

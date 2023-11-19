@@ -1,0 +1,14 @@
+.main {
+  margin-top: 10%;
+  display: flex;
+  height: 300vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.main img {
+  width: 30vw;
+  position: absolute;
+  display: none;
+  transform: translateX(-50%) translateY(-50%);
+}
