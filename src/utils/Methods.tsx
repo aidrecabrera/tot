@@ -1,6 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
 export default function Methods() {
   const victimMethods = [
     {
@@ -208,18 +207,29 @@ export default function Methods() {
       ],
     },
   ];
-
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <>
       <div className="flex flex-col gap-26">
         {victimMethods.map(({ method, victims }, index) => (
           <div className="flex flex-row gap-x-20 py-16" key={index}>
-            <div className="w-1/2 text-9xl">{method}</div>
+            <div
+              className={`w-1/2 text-9xl ease-in-out duration-1000 ${
+                isHovered ? "text-red-700 " : ""
+              }`}
+            >
+              {method}
+            </div>
             <div className="w-1/2 text-5xl">
               <ul>
                 {Array.isArray(victims) &&
                   victims.map((victim, i) => (
-                    <li className="" key={i}>
+                    <li
+                      className="hover:text-red-700 ease-in-out duration-1000"
+                      key={i}
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                    >
                       <RevealLine />
                       {victim}
                     </li>
@@ -229,6 +239,11 @@ export default function Methods() {
           </div>
         ))}
       </div>
+      <div
+        className={`follow duration-1000 ease-in-out fixed  h-screen w-screen top-0 left-0 ${
+          isHovered ? "bg-black opacity-100" : ""
+        } -z-50`}
+      ></div>
     </>
   );
 }
@@ -255,7 +270,7 @@ function RevealLine() {
     <>
       <div ref={body}>
         <motion.hr
-          className="border border-black my-3"
+          className={`border border-black my-3 `}
           variants={animate}
           initial="initial"
           animate={isInView ? "open" : "initial"}
