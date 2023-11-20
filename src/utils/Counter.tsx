@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { RoughNotation } from "react-rough-notation";
 import RevealText from "../components/RevealText";
 import "./Counter.css";
 import MagneticInteraction from "./magneticInteraction";
-
 interface KillingsCounterProps {
   peopleCount: number;
   description: string;
@@ -23,6 +23,15 @@ export default function Counter({
     triggerOnce: true,
   });
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <>
       <div className={`parent flex gap-5 `}>
@@ -31,7 +40,22 @@ export default function Counter({
             isHovered ? "text-red-700 " : ""
           } `}
         >
-          <RevealText phrases={[description]} />
+          <RoughNotation
+            animationDuration={500}
+            iterations={2}
+            type="crossed-off"
+            strokeWidth={4}
+            color="red"
+            show={isHovered}
+            multiline={true}
+          >
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <RevealText phrases={[description]} />
+            </div>
+          </RoughNotation>
         </div>
         <div
           className="grid grid-cols-12 grid-rows-6 flex-wrap gap-4 w-1/2"
@@ -56,7 +80,7 @@ export default function Counter({
       </div>
       <div
         className={`follow duration-1000 ease-in-out fixed  h-screen w-screen top-0 left-0 ${
-          isHovered ? "bg-black opacity-100" : ""
+          isHovered ? "bg-black opacity-97" : ""
         } -z-50`}
       ></div>
     </>

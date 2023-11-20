@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { RoughNotation } from "react-rough-notation";
 import styles from "./page.module.css";
-
 export default function Mask() {
   const container = useRef(null);
   const stickyMask = useRef(null);
@@ -51,12 +51,34 @@ export default function Mask() {
     hidden: { opacity: 1 },
     visible: { opacity: 0 },
   };
+  const [isHovered, setIsHovered] = useState(false);
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <main className={styles.main}>
-      <h1 className="absolute uppercase top-[350px] left-1/2 transform -translate-x-1/2 tracking-wider font-nacelle">
-        ARE YOU READY FOR SOME REAL HORROR?
+      <h1
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="absolute uppercase top-[350px] left-1/2 transform -translate-x-1/2 tracking-wider font-nacelle z-50"
+      >
+        <RoughNotation
+          animationDuration={500}
+          iterations={3}
+          type="underline"
+          strokeWidth={1}
+          color="black"
+          show={isHovered}
+        >
+          ARE YOU READY FOR SOME REAL HORROR?
+        </RoughNotation>
       </h1>
+
       <div ref={container} className={styles.container}>
         <div ref={stickyMask} className={styles.stickyMask}>
           <motion.img

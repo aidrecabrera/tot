@@ -13,6 +13,12 @@ import "../main.css";
 import ImagesReveal from "../utils/imagesReveal";
 
 export default function Landing() {
+  const body0 = useRef(null);
+  const isInView0 = useInView(body0, { once: false, margin: "-10%" });
+  const body1 = useRef(null);
+  const isInView1 = useInView(body1, { once: false, margin: "-10%" });
+  const body3 = useRef(null);
+  const isInView3 = useInView(body3, { once: false, margin: "-10%" });
   return (
     <div>
       <motion.div
@@ -33,23 +39,71 @@ export default function Landing() {
             <ImagesReveal />
           </div>
           <img
-            className="relative -top-[1600px] left-20 -z-10"
+            className="relative -top-[1600px] left-0 -z-10"
             src="intro-effects.png"
             alt=""
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-10 -mt-[1600px]">
+      <div className="grid grid-cols-2 gap-10 -mt-[1200px] mb-64">
         <div className="">
           <Proclamation />
         </div>
-        <div>
-          <img src="ferdinand.png" alt="" />
+        <div
+          ref={body3}
+          className="overflow-hidden rounded-lg flex justify-center items-center"
+        >
+          <motion.img
+            className="w-full h-5/6"
+            src="proclifucktangina.jpg"
+            alt=""
+            initial={{ opacity: 0 }}
+            animate={
+              isInView3
+                ? {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1.3,
+                    transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+                  }
+                : {
+                    y: 200,
+                    opacity: 1,
+                    scale: 2,
+                    transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+                  }
+            }
+            transition={{ duration: 0.5 }}
+          />
         </div>
       </div>
-      <div className="grid grid-cols-2 pt-24 gap-10">
-        <div>
-          <img className="w-full h-5/6" src="fuck-you.gif" alt="" />
+      <div className="grid grid-cols-2 pt-24 gap-10 mb-64">
+        <div
+          ref={body0}
+          className="overflow-hidden rounded-lg flex justify-center items-center"
+        >
+          <motion.img
+            className="w-full h-5/6"
+            src="fuck-you.gif"
+            alt=""
+            initial={{ opacity: 0 }}
+            animate={
+              isInView0
+                ? {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1.3,
+                    transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+                  }
+                : {
+                    y: 200,
+                    opacity: 1,
+                    scale: 2,
+                    transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+                  }
+            }
+            transition={{ duration: 0.5 }}
+          />
         </div>
         <div>
           <h1 className="text-7xl">
@@ -57,17 +111,41 @@ export default function Landing() {
           </h1>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid grid-cols-2 gap-10 mb-64">
         <div className="flex flex-col gap-10">
           <h1 className="text-7xl">
             <Promises />
           </h1>
         </div>
-        <div>
-          <img className="w-full h-5/6" src="n03311.png" alt="" />
+        <div
+          ref={body1}
+          className="overflow-hidden rounded-lg flex justify-center items-center"
+        >
+          <motion.img
+            className="w-full h-5/6"
+            src="n03311.png"
+            alt=""
+            initial={{ opacity: 0 }}
+            animate={
+              isInView1
+                ? {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1.3,
+                    transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+                  }
+                : {
+                    y: 200,
+                    opacity: 1,
+                    scale: 2,
+                    transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+                  }
+            }
+            transition={{ duration: 0.5 }}
+          />
         </div>
       </div>
-      <div className="flex flex-row justify-center w-screen">
+      <div className="flex flex-row justify-center w-screen mb-64">
         <h1 className="text-7xl">
           <Suffer />
         </h1>

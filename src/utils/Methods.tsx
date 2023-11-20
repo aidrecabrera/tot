@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { RoughNotation } from "react-rough-notation";
 export default function Methods() {
   const victimMethods = [
     {
@@ -218,7 +219,17 @@ export default function Methods() {
                 isHovered ? "text-red-700 " : ""
               }`}
             >
-              {method}
+              <RoughNotation
+                animationDuration={500}
+                iterations={3}
+                type="strike-through"
+                strokeWidth={1}
+                color="red"
+                show={isHovered}
+                multiline={true}
+              >
+                {method}
+              </RoughNotation>
             </div>
             <div className="w-1/2 text-5xl">
               <ul>

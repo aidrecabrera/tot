@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import { RoughNotation } from "react-rough-notation";
 export default function Introduction() {
   const message: any = [
     "On the night of September 23, 1972, ",
@@ -11,7 +11,7 @@ export default function Introduction() {
 
   return (
     <div className="flex flex-row">
-      <h1 className="text-8xl font-nacelle leading-tight">
+      <h1 className="text-8xl font-nacelle leading-tight message">
         <RevealText phrases={message} />
       </h1>
     </div>
@@ -35,20 +35,42 @@ function RevealText({ phrases }: { phrases: string[] }) {
   useEffect(() => {
     console.log(isInView);
   }, [isInView]);
+  const [isHovered, setIsHovered] = useState(false);
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <>
       <div ref={body}>
         {phrases.map((word, index) => {
           return (
-            <div key={index} className="linemask overflow-hidden">
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              key={index}
+              className="linemask overflow-hidden"
+            >
               <motion.p
                 custom={index}
                 variants={animate}
                 initial="initial"
                 animate={isInView ? "open" : "initial"}
               >
-                {word}
+                <RoughNotation
+                  animationDuration={500}
+                  iterations={2}
+                  type="underline"
+                  strokeWidth={2}
+                  color="black"
+                  show={isHovered}
+                >
+                  {word}
+                </RoughNotation>
               </motion.p>
             </div>
           );

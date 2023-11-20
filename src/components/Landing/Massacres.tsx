@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { RoughNotation } from "react-rough-notation";
 export default function Massacres() {
   const massacres = [
     "Bacong Bridge massacre",
@@ -19,14 +20,34 @@ export default function Massacres() {
     visible: { opacity: 1, y: 0 },
   };
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <div className="flex gap-10">
       <h1
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className={`text-9xl w-1/2 ease-in-out duration-1000 ${
           isHovered ? "text-red-700 " : ""
         }`}
       >
-        Massacres happened during the Regime
+        <RoughNotation
+          animationDuration={500}
+          iterations={4}
+          type="crossed-off"
+          strokeWidth={1}
+          color="red"
+          show={isHovered}
+          multiline={true}
+        >
+          Massacres happened during the Regime
+        </RoughNotation>
       </h1>
       <div className="grid grid-cols-1 gap-5 justify-between w-1/2">
         {massacres.map((massacre, index) => (

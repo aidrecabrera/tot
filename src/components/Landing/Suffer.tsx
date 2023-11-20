@@ -25,10 +25,12 @@ function RevealText({ phrases }: { phrases: string[] }) {
   const animate = {
     initial: {
       y: "200%",
+      opacity: 0,
       transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
     },
     open: (i: number) => ({
       y: "0%",
+      opacity: 100,
       transition: { duration: 0.5, delay: 0.15 * i, ease: [0.33, 1, 0.68, 1] },
     }),
   };

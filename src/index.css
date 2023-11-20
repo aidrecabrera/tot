@@ -186,10 +186,11 @@ body::before {
   left: -50%;
   width: 200%;
   height: 200%;
-  z-index: -1;
+  z-index: 999;
   background-image: url("https://uploads-ssl.webflow.com/61951265d7110a723766c703/61951306d6dbb6562f844696_Noise.png");
   opacity: 1;
   animation: noise 1s steps(4) infinite;
+  pointer-events: none;
 }
 
 @keyframes noise {

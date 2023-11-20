@@ -34,7 +34,7 @@ export default function CursorOverlay() {
         translateX: smoothMouse.x,
         translateY: smoothMouse.y,
       }}
-      className="bg-black backdrop:invert w-8 h-8 rounded-full pointer-events-none"
+      className="absolute w-12 h-12 rounded-full pointer-events-none z-[999] backdrop-invert"
     ></motion.div>
   );
 }
