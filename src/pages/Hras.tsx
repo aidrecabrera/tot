@@ -50,7 +50,7 @@ export default function Hras() {
     },
   ];
   return (
-    <div>
+    <div className="my-10">
       <div className="flex flex-col gap-16 ">
         <div className="flex flex-row justify-between ">
           <a

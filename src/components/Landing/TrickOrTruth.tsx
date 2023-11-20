@@ -124,6 +124,15 @@ export default function TrickOrTruth() {
 }
 
 function RevealText({ phrases }: { phrases: string[] }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   const animate = {
     initial: {
       y: "200%",
@@ -146,16 +155,30 @@ function RevealText({ phrases }: { phrases: string[] }) {
       <div ref={body} className="text-5xl flex flex-col gap-10">
         {phrases.map((word, index) => {
           return (
-            <div key={index} className="linemask overflow-hidden">
-              <motion.div
-                custom={index}
-                variants={animate}
-                initial="initial"
-                animate={isInView ? "open" : "initial"}
-              >
-                {word}
-              </motion.div>
-            </div>
+            <RoughNotation
+              animationDuration={1000}
+              animationDelay={100}
+              iterations={3}
+              type="circle"
+              strokeWidth={1}
+              color="black"
+              show={isHovered}
+              multiline={true}
+            >
+              <div key={index} className="linemask overflow-hidden">
+                <motion.h1
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className=""
+                  custom={index}
+                  variants={animate}
+                  initial="initial"
+                  animate={isInView ? "open" : "initial"}
+                >
+                  {word}
+                </motion.h1>
+              </div>
+            </RoughNotation>
           );
         })}
       </div>
@@ -180,7 +203,15 @@ function RevealTextHead({ phrases }: { phrases: string[] }) {
   useEffect(() => {
     console.log(isInView);
   }, [isInView]);
+  const [isHovered, setIsHovered] = useState(false);
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <>
       <div ref={body} className="text-9xl font-black flex flex-col gap-10">
@@ -188,12 +219,23 @@ function RevealTextHead({ phrases }: { phrases: string[] }) {
           return (
             <div key={index} className="linemask overflow-hidden">
               <motion.div
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 custom={index}
                 variants={animate}
                 initial="initial"
                 animate={isInView ? "open" : "initial"}
               >
-                {word}
+                <RoughNotation
+                  animationDuration={700}
+                  iterations={3}
+                  type="circle"
+                  strokeWidth={1}
+                  color="black"
+                  show={isHovered}
+                >
+                  {word}
+                </RoughNotation>
               </motion.div>
             </div>
           );

@@ -18,6 +18,16 @@ html::-webkit-scrollbar-thumb {
   background-color: red;
 }
 
+::-moz-selection {
+  color: red;
+  background: yellow;
+}
+
+::selection {
+  color: red;
+  background: yellow;
+}
+
 @font-face {
   font-family: "Nacelle";
   src: local("Nacelle Italic"), local("Nacelle-Italic"),
