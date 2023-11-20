@@ -10,10 +10,6 @@ export default function Lies() {
     "overthrow the government",
     "and violate the peaceful",
     "lives of ordinary Filipinos.",
-    "Marcos even compared the",
-    "current state of the nation",
-    "to a war, one which he",
-    "intended to put a stop to.",
   ];
 
   return (
@@ -28,12 +24,14 @@ export default function Lies() {
 function RevealText({ phrases }: { phrases: string[] }) {
   const animate = {
     initial: {
-      y: "200%",
-      transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
+      x: "200%",
+      opacity: 0,
+      transition: { duration: 1, ease: [0.25, 1, 0.5, 1] },
     },
     open: (i: number) => ({
-      y: "0%",
-      transition: { duration: 0.5, delay: 0.15 * i, ease: [0.33, 1, 0.68, 1] },
+      x: "0%",
+      opacity: 1,
+      transition: { duration: 0.75, delay: 0.15 * i, ease: [0.25, 1, 0.5, 1] },
     }),
   };
   const body = useRef(null);

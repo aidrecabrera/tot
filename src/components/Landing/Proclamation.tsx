@@ -23,12 +23,14 @@ export default function Proclamation() {
 function RevealText({ phrases }: { phrases: string[] }) {
   const animate = {
     initial: {
-      y: "200%",
+      x: "-100%",
+      opacity: 0,
       transition: { duration: 1, ease: [0.33, 1, 0.68, 1] },
     },
     open: (i: number) => ({
-      y: "0%",
-      transition: { duration: 0.5, delay: 0.15 * i, ease: [0.33, 1, 0.68, 1] },
+      x: "0%",
+      opacity: 1,
+      transition: { duration: 0.7, delay: 0.15 * i, ease: [0.25, 1, 0.5, 1] },
     }),
   };
   const body = useRef(null);
